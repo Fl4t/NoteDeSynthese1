@@ -1,24 +1,6 @@
 \chapter{Gestion de version de code source}
 
-\section{L'arrivé en entreprise}
-
-Le premier jour en entreprise fut un peu spécial pour moi. En effet, mon
-entretien s'étant passé un vendredi après-midi, seul les gérants de
-l'entreprise était présent, du coup ça à été pour moi l'occasion de rencontrer
-les deux developpeurs, Cyril (ancien BTS IG a jean bart) et Ludovic. M.Dubourg
-ma imposer dans un premier temps de me documenter un maximum sur Git pour que
-je maitrise globalement l'application et savoir si elle répondai bien aux
-attentes.
-
-Les problèmatiques principales sont les suivantes :
-\begin{itemize}
-    \item Peut-on fusionner les branches éfficacement ?
-    \item Si oui, peut-on séléctionner les commits spécifiques à fusionner ?
-\end{itemize}
-
-Avant de pouvoir répondre à ses questions il me semble évident de comprendre le sens des mots qui n'était pas tous clair au départ.
-
-\subsection{Git : le gestionnaire de version}
+\section{Git : le gestionnaire de version}
 
 Les logiciels de gestion de versions sont utilisés principalement par les
 développeurs. En effet, ils sont quasi exclusivement utilisés pour gérer des
@@ -39,13 +21,34 @@ Ces logiciels ont donc par conséquent deux utilités principales :
     \item travailler à plusieurs, sans risquer de se marcher sur les pieds. Si deux personnes modifient un même fichier en même temps, leurs modifications doivent pouvoir être fusionnées sans perte d’information.
 \end{itemize}
 
-\subsubsection{Les rudiments}
+\subsection{Les rudiments}
 
+Un commit correspond à un enregistrement des modifications dans le temps.
+Admettons un fichier contenant un paragraphe, si nous ajoutons un deuxième
+paragraphe, le fichier sera considérer modifié par Git, pour enregistrer la
+modification on effectue un commit. L'analogie la plus simple est celle des
+sauvegardes dans les jeux vidéos ou vous sauvegardez votre progression.
+
+Une branche représente une copie virtuelle du dossier contenant les fichiers
+sources. En effet, il est possible a partir d'un dépôt de cloner virtuellement
+ce dépôt et de basculer de l'un à l'autre pour par exemple développer sur la
+branche principale les nouvelles fonctionnalités et sur l'autre branche les
+corrections de bug.
+
+La fusion est l'opération rassemblement des deux branches en une, c'est-à-dire
+dans le cas précédent de regrouper les corrections de bugs avec les nouvelles
+fonctionnalités.
+
+Les fondamentaux ayant été acquis, j'ai trouvé plusieurs solutions à la problématique principale qui est la suivante :
 \begin{itemize}
-    \item[le commit :] corréspond à un enregistrement des modifications dans le temps. Admettons un fichier contenant un paragraphe
-    \item[la branche :] corréspond a une copie des fichiers sources par rapport a une branche principale
+    \item Peut-on fusionner des branches tout en choisissant de ne pas fusionner tout les commits ?
 \end{itemize}
 
+La commande git chery-pick "commit" permet de \fg cueillir \og le commit que
+l'on veut fusionner, sinon on peut aussi rassembler les deux branches puis faire un
+git revert "commit" pour retirer le commit après la fusion ou enfin faire trois branches distinctes pour ne pas avoir à faire ses opérations ci-dessus.
+
+Git répondant au besoin de l'entreprise, il a fallut que j'effectue des recherches pour que la migration Subversion vers git ce fasse sans perte.
 
 %-- Note de bas de page sur les stades
 %\protect\footnote{Par exemple, on peut faire un pied de page :
@@ -56,49 +59,5 @@ Ces logiciels ont donc par conséquent deux utilités principales :
 %\end{itemize}
 }
 %-- Fin Note de bas de page sur les stades
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-\begin{itemize}
-\item avec une liste à puces ;
-\item avec une liste à puces ;
-\item avec une liste à puces.
-\end{itemize}
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-\subsubsection{Titre de la sous sous section}
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-\subsubsection{Titre de la sous sous section}
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-\subsection{Conclusion}
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-\subsection{Titre de la sous section}
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. On peut faire une citation \cite{Motclef1}.
-A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-\subsection{Titre de la sous section}
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. On peut faire une citation \cite{Motclef1}.
-A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
 
 \clearpage
