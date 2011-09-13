@@ -19,29 +19,9 @@
 %Pour la longueur de l'indentation des paragraphes
 \setlength{\parindent}{15mm}
 
-%%%% debut macro pour enlever le nom chapitre %%%%%{{{
-\makeatletter
-\def\@makechapterhead#1{%
-  \vspace*{50\p@}%
-  {\parindent \z@ \raggedright \normalfont
-    \interlinepenalty\@M
-    \ifnum \c@secnumdepth >\m@ne
-        \Huge\bfseries \thechapter\quad
-    \fi
-    \Huge \bfseries #1\par\nobreak
-    \vskip 40\p@
-  }}
-
-\def\@makeschapterhead#1{%
-  \vspace*{50\p@}%
-  {\parindent \z@ \raggedright
-    \normalfont
-    \interlinepenalty\@M
-    \Huge \bfseries  #1\par\nobreak
-    \vskip 40\p@
-  }}
-\makeatother
-%%%% fin macro %%%%%}}}
+% Pour ne plus avoir le mot chapitre
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]{\bf\huge}{\thechapter}{2pc}{}
 
 %Couverture
 
