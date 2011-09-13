@@ -52,18 +52,25 @@ question est dans la documentation de MySQL. Une base de donnée est fournit à
 l'installation est qui s'apelle information schéma. En résumé, c'est une base
 de donnée qui contient les autres bases de donnée.
 
-Ensuite, j'ai transformer l'algorithme procédurale sur plusieurs semaines en objet, le fait de passer par cette étape intermédiaire m'as permis d'abord de résoudre le
-problème algorithmique, puis après me consacrer sur la façon de programmer.
+Ensuite, j'ai transformer l'algorithme procédurale sur plusieurs semaines en
+objet, le fait de passer par cette étape intermédiaire m'as permis d'abord de
+résoudre le problème algorithmique, puis après me consacrer sur la façon de
+programmer.
 
-La requête récuperant les données utiles, il a fallut concevoir un algorithme capable de comparer les deux tableaux d'objets par rapport a leurs nom :
+La requête récuperant les données utiles, il a fallut concevoir un algorithme
+capable de comparer les deux tableaux d'objets par rapport a leurs nom :
 \begin{itemize}
-    \item Si la base de donnée de référence à une table qui n'est pas dans la base de donnée a mettre à jour, on l'ajoute.
-    \item Si la base de donnée de mise à jour contient une table qui n'est pas dans la base de donnée de référence, on l'enlève.
+    \item Si la base de donnée de référence à une table qui n'est
+        pas dans la base de donnée a mettre à jour, on l'ajoute.
+    \item Si la base de donnée de mise à jour contient une table qui n'est pas
+        dans la base de donnée de référence, on l'enlève.
 \end{itemize}
 
-J'ai du revoir mon algorithme plusieurs fois car ma fonction de comparaison de chaine de caractère (strnatcmp) comparait les chaines de caractère comme un humain le ferait,
-alors que mySQL trie les tables de manière binaire c'est a dire les codes Ascii des caractères ce qui fesait que la première fonction donner des resultats érronées dans des
-cas particuliers.
+J'ai du revoir mon algorithme plusieurs fois car ma fonction de comparaison de
+chaine de caractère (strnatcmp) comparait les chaines de caractère comme un
+humain le ferait, alors que mySQL trie les tables de manière binaire c'est a
+dire les codes Ascii des caractères ce qui fesait que la première fonction
+donner des resultats érronées dans des cas particuliers.
 
 Tri de chaînes standard
 Array
@@ -85,63 +92,99 @@ Array
 
 \section{Comparaison des champs}
 
-Maintenant que je me retrouvai dans des tables ayant les mêmes noms, il fallait que je compare le contenu, lui aussi en comparant le nom des champs, il m'as pas fallut
-longtemps pour comprendre que l'algorithme était exactement le même, le plus dur étant de savoir comment j'allais faire pour me répeter le minimum possible ce qui a bloqué
-énormement mon avancement pour pas grand chose. M.Dubourg constatant que je n'avançais plus ma conseiller de faire comme je le voyais dans ma tête plutôt que d'éssayer de
-modifier l'algorithme dans ma tête en objet puis de l'écrire. Une fois le script fonctionnel mais très mal optimisé et peu lisible, celui-ci m'as guidé via des annotations
-est des explications poussées sur la marche qui semblai la meilleur. De fil en aiguille le code source est passé d'environ trois-cent cinquante lignes à cent cinquante.
+Maintenant que je me retrouvai dans des tables ayant les mêmes noms, il fallait
+que je compare le contenu, lui aussi en comparant le nom des champs, il m'as
+pas fallut longtemps pour comprendre que l'algorithme était exactement le même,
+le plus dur étant de savoir comment j'allais faire pour me répeter le minimum
+possible ce qui a bloqué énormement mon avancement pour pas grand chose.
+M.Dubourg constatant que je n'avançais plus ma conseiller de faire comme je le
+voyais dans ma tête plutôt que d'éssayer de modifier l'algorithme dans ma tête
+en objet puis de l'écrire. Une fois le script fonctionnel mais très mal
+optimisé et peu lisible, celui-ci m'as guidé via des annotations est des
+explications poussées sur la marche qui semblai la meilleur. De fil en aiguille
+le code source est passé d'environ trois-cent cinquante lignes à cent
+cinquante.
 
-Ensuite légèrement different, je devais comparer le contenu des champs des tables lorsque les champs parcouru avait le même nom, je compare tout
-simplement le contenu des champ pour connaitre l'issue finale, à savoir que je ne pouvais pas décider si les tables était similaire sans avoir balayer
-tout les champs et toutes les caractèristique de ceux-ci.
+Ensuite légèrement different, je devais comparer le contenu des champs des
+tables lorsque les champs parcouru avait le même nom, je compare tout
+simplement le contenu des champ pour connaitre l'issue finale, à savoir que je
+ne pouvais pas décider si les tables était similaire sans avoir balayer tout
+les champs et toutes les caractèristique de ceux-ci.
 
-Après tout ceci fini est optimisé, j'implémente une nouvelle fonctionnalité qui serai d'afficher un texte lisible qui énonce les differences des deux
-bases donnée. En fonction des résultats obtenu, je génère des balises html et du texte pour que cela soit comprehensible à l'utilisateur. Ceci étant
-fait assez rapidement je suis passé à la génération des requetes SQL permettant de mettre a jour la base de donnée comparé à la référence. C'est à ce
-stade que j'ai constaté que je ne pourrais pas prendre en compte les clés étrangère dans mon code à moin de revoir totalement tout le script.
-M.Dubourg ma rassurer sur le fait que l'entreprise n'utilisai pas le type de base de donnée MySLAM et que donc aucune de leurs table comportait de clé
-étrangère, cependant les clés primaire concaténées reste problèmatique car pas imaginer pendant la conception. Nous avons décider que la création de
-ce genre de cas ce fera à la main pour pas repartir de zéro.
+Après tout ceci fini est optimisé, j'implémente une nouvelle fonctionnalité qui
+serai d'afficher un texte lisible qui énonce les differences des deux bases
+donnée. En fonction des résultats obtenu, je génère des balises html et du
+texte pour que cela soit comprehensible à l'utilisateur. Ceci étant fait assez
+rapidement je suis passé à la génération des requetes SQL permettant de mettre
+a jour la base de donnée comparé à la référence. C'est à ce stade que j'ai
+constaté que je ne pourrais pas prendre en compte les clés étrangère dans mon
+code à moin de revoir totalement tout le script.  M.Dubourg ma rassurer sur le
+fait que l'entreprise n'utilisai pas le type de base de donnée MySLAM et que
+donc aucune de leurs table comportait de clé étrangère, cependant les clés
+primaire concaténées reste problèmatique car pas imaginer pendant la
+conception. Nous avons décider que la création de ce genre de cas ce fera à la
+main pour pas repartir de zéro.
 
-Après avoir analyser mes methodes de génération de phrase lisible et de requetes SQL, M.Dubourg ma présenter un outils nommée "Smarty" qui permet de
-dissocier la partie traitement de la partie affichage car il est vrai que mes méthodes était vraiment très sale. Pour résumer, j'écrivais des chaines
-de caractère dans une seule variable en écrivant les noms des tables ou des champs, en concatenant le tout avec des balises html de saut de ligne un
-peu nimporte où. J'ai du parcourir la doc de Smarty pour comprendre son fonctionnement, il s'avère que la synthaxe est très particulière mais très
-éfficace. J'ai terminer par faire de l'agencement sur ma page pour que chaque ligne lisible par un néophyte soit en face de la ligne en SQL dans un
-tableau a deux colonnes tout ceci avec l'aide de smarty.
+Après avoir analyser mes methodes de génération de phrase lisible et de
+requetes SQL, M.Dubourg ma présenter un outils nommée "Smarty" qui permet de
+dissocier la partie traitement de la partie affichage car il est vrai que mes
+méthodes était vraiment très sale. Pour résumer, j'écrivais des chaines de
+caractère dans une seule variable en écrivant les noms des tables ou des
+champs, en concatenant le tout avec des balises html de saut de ligne un peu
+nimporte où. J'ai du parcourir la doc de Smarty pour comprendre son
+fonctionnement, il s'avère que la synthaxe est très particulière mais très
+éfficace. J'ai terminer par faire de l'agencement sur ma page pour que chaque
+ligne lisible par un néophyte soit en face de la ligne en SQL dans un tableau a
+deux colonnes tout ceci avec l'aide de smarty.
 
-A peu près au milieu du stage, nous nous sommes heurté a un problème technique. Le serveur de l'entreprise ne contenai pas de version réçente de Git.
-En sachant que celui-ci est mutualisé, nous n'avions pas les autorisations nécessaire pour installer une nouvelle version. Les logiciels libres sont
-réputé pour être rétro-compatibles mais en toutes logique il ne dispose pas des nouveautés sans les mettre à jour. Le problème ce situe sur le fait de
-pouvoir modifier des branches distantes dites "de suivi". Cette fonctionnalité permet à plusieurs développeur de travailler en même temps sur une branche différente de
-celle par defaut, par exemple pour experimenter de nouvelles choses à plusieurs. A ce moment là j'ai été très déçu et pensais mon travail
-inutilisable. Cependant, mes éfforts n'ont pas été vain puisque M.Dubourg après des recherches à trouver sur internet un utilisateur ayant reussi à
-installer git sur un serveur mutualisé. Nous n'avions peut-être pas les droits d'accès au dossiers des programmes mais rien ne nous empechai de
-compiler git a partir des sources pour nous crée en locale le logiciel. J'étais déçu d'avoir passer la partie compilation dans mon livre UNIX.
-Ceci étant fait, en redéfinissant la variable système qui stocke les chemains des applications utiliser notre compilé dernier cri.
+A peu près au milieu du stage, nous nous sommes heurté a un problème technique.
+Le serveur de l'entreprise ne contenai pas de version réçente de Git.  En
+sachant que celui-ci est mutualisé, nous n'avions pas les autorisations
+nécessaire pour installer une nouvelle version. Les logiciels libres sont
+réputé pour être rétro-compatibles mais en toutes logique il ne dispose pas des
+nouveautés sans les mettre à jour. Le problème ce situe sur le fait de pouvoir
+modifier des branches distantes dites "de suivi". Cette fonctionnalité permet à
+plusieurs développeur de travailler en même temps sur une branche différente de
+celle par defaut, par exemple pour experimenter de nouvelles choses à
+plusieurs. A ce moment là j'ai été très déçu et pensais mon travail
+inutilisable. Cependant, mes éfforts n'ont pas été vain puisque M.Dubourg après
+des recherches à trouver sur internet un utilisateur ayant reussi à installer
+git sur un serveur mutualisé. Nous n'avions peut-être pas les droits d'accès au
+dossiers des programmes mais rien ne nous empechai de compiler git a partir des
+sources pour nous crée en locale le logiciel. J'étais déçu d'avoir passer la
+partie compilation dans mon livre UNIX.  Ceci étant fait, en redéfinissant la
+variable système qui stocke les chemains des applications utiliser notre
+compilé dernier cri.
 
-accès à la partie installation des programmes
-Mon travail suivant consistait a lister les dépôt Git qui sont en fin de compte les dossiers contenant les sources de l'entreprise mais versionnée
-dans une page php. En effet le fait que le serveur OVH centralise les codes sources de la société, les developpeurs devait récuperer une copie de ses
-dossiers pour pouvoir travailler dessus, le problème étant qu'il devait lancer FilleZilla pour connaitre les noms des dossiers Git puis recopier la
-bonne url avec le bon nom est très fastidieux. J'ai donc à l'aide de mes connaissance en système UNIX crée un script en langage PHP qui analyse un
-dossier défini et qui liste les differents dépôt tout en leur métant les bonnes addresses de téléchargement en préfixe. Du coup, un simple copier
-collé du dépôt voulu puis l'importation avec tortoiseGit ce fait en un clic. Gain de productivité et de simplicité en somme.
+accès à la partie installation des programmes Mon travail suivant consistait a
+lister les dépôt Git qui sont en fin de compte les dossiers contenant les
+sources de l'entreprise mais versionnée dans une page php. En effet le fait que
+le serveur OVH centralise les codes sources de la société, les developpeurs
+devait récuperer une copie de ses dossiers pour pouvoir travailler dessus, le
+problème étant qu'il devait lancer FilleZilla pour connaitre les noms des
+dossiers Git puis recopier la bonne url avec le bon nom est très fastidieux.
+J'ai donc à l'aide de mes connaissance en système UNIX crée un script en
+langage PHP qui analyse un dossier défini et qui liste les differents dépôt
+tout en leur métant les bonnes addresses de téléchargement en préfixe. Du coup,
+un simple copier collé du dépôt voulu puis l'importation avec tortoiseGit ce
+fait en un clic. Gain de productivité et de simplicité en somme.
 
-Trois jours avant mon départ, le grand déménagement simpose. Toute la partie étude et confection du tutoriel git prend forme car j'ai basculer tout
-les progets qui était au préalable sur Subversion vers Git tout en gardant l'historique des changement provenant de SVN. Après quelques recherche, une
+Trois jours avant mon départ, le grand déménagement simpose. Toute la partie
+étude et confection du tutoriel git prend forme car j'ai basculer tout les
+progets qui était au préalable sur Subversion vers Git tout en gardant
+l'historique des changement provenant de SVN. Après quelques recherche, une
 commande poussé de Git ma permis de répondre a ce besoin.
 
-Nous avons longuement discuté sur le côté technique de git. En effet cette outil est à la base un logiciel libre provenant de linux et n'as pas
-d'interface graphique, ce choix est établi sur le fait qu'un développeur n'as pas forcement besoin de ça pour travailler (Sans nul doute que pour un
-graphiste, une souris est un élément indispensable pour ses créations mais pas pour produire du code) et aussi que cette outil regorge de
-fonctionnalité et donc très difficile à simplifier à travers une interface ne pouvant fonctionner qu'avec une souris. L'équipe n'étant pas très féru de
-ligne de commande et le logiciel TortoiseGit reprenant que les fonctions éssentielle de Git, il a fallu que je conçois des petits programmes qui
-fonctionne en un clic pour simplifier les choses répétitives.
-
-
-%%-- Note de bas de page sur les stades
-%\protect\footnote{Par exemple, on peut faire un pied de page : \begin{itemize} \item avec une liste à puces ; \item avec une liste à puces ; \item avec une liste à puces.
-%\end{itemize} } -- Fin Note de bas de page sur les stades
+Nous avons longuement discuté sur le côté technique de git. En effet cette
+outil est à la base un logiciel libre provenant de linux et n'as pas
+d'interface graphique, ce choix est établi sur le fait qu'un développeur n'as
+pas forcement besoin de ça pour travailler (Sans nul doute que pour un
+graphiste, une souris est un élément indispensable pour ses créations mais pas
+pour produire du code) et aussi que cette outil regorge de fonctionnalité et
+donc très difficile à simplifier à travers une interface ne pouvant fonctionner
+qu'avec une souris. L'équipe n'étant pas très féru de ligne de commande et le
+logiciel TortoiseGit reprenant que les fonctions éssentielle de Git, il a fallu
+que je conçois des petits programmes qui fonctionne en un clic pour simplifier
+les choses répétitives.
 
 \clearpage
