@@ -5,16 +5,15 @@
 Les logiciels de gestion de versions ou VCS\, \footnote{\emph{Version Control
 System.}} sont utilisés principalement par les développeurs. En effet, ils sont
 quasi exclusivement utilisés pour gérer des codes sources, car ils sont
-capables de suivre l’évolution d’un fichier texte ligne de code par ligne de
-code. Ces logiciels sont fortement conseillés pour gérer un projet
+capables de suivre l’évolution d’un fichier texte \emph{ligne de code par ligne de
+code.} Ces logiciels sont fortement conseillés pour gérer un projet
 informatique.
 
 Ils retiennent qui a effectué chaque modification de chaque fichier et
 pourquoi. Ils sont par conséquent capables de dire qui a écrit chaque ligne de
-code de chaque fichier et dans quel but ; si deux personnes travaillent
-simultanément sur un même fichier, ils sont capables d’assembler (de fusionner)
-leurs modifications et d’éviter que le travail d’une de ces personnes ne soit
-écrasé.
+chaque fichier et dans quel but ; si deux personnes travaillent simultanément
+sur un même fichier, ils sont capables d’assembler (de fusionner) leurs
+modifications et d’éviter que le travail d’une de ces personnes ne soit écrasé.
 
 Ces logiciels ont donc par conséquent deux utilités principales :
 \begin{itemize}
@@ -28,13 +27,13 @@ doivent pouvoir être fusionnées sans perte d’information.
 
 \subsection{Les rudiments}
 
-\emph{Un commit} correspond à un enregistrement des modifications dans le temps.
-Admettons un fichier contenant un paragraphe, si nous ajoutons un deuxième
-paragraphe, le fichier sera considérer modifié par Git\, \footnote{Créé par
-Linus Torvalds, qui est entre autres l’homme à l’origine de Linux. Il est de
-type distribué.}, pour enregistrer la modification on effectue un commit.
-L'analogie la plus simple est celle des sauvegardes dans les jeux vidéos ou
-vous sauvegardez votre progression.
+\emph{Un commit} correspond à un enregistrement des modifications dans le
+temps.  Admettons un fichier contenant un paragraphe, si nous ajoutons un
+deuxième paragraphe, le fichier sera considérer comme modifié par Git\,
+\footnote{Créé par Linus Torvalds, qui est entre autres l’homme à l’origine de
+Linux. Il est de type distribué.}, pour enregistrer la modification on effectue
+un commit.  L'analogie la plus simple est celle des jeux vidéos ou vous
+sauvegardez votre progression à chaque étape franchie.
 
 \emph{Une branche} représente une \og copie virtuelle \fg{} du dossier contenant
 les fichiers sources. En effet, il est possible à partir d'un dépôt de le
@@ -42,22 +41,27 @@ cloner virtuellement et de basculer de l'un à l'autre pour par exemple
 développer sur la branche principale les nouvelles fonctionnalitées et sur
 l'autre branche les corrections de bug.
 
+\begin{center}
+\includegraphics{images/branches.png}
+\end{center}
+
 \emph{La fusion} est l'opération de rassemblement des deux branches en une,
 c'est-à-dire dans le cas précédent de regrouper les corrections de bug avec les
 nouvelles fonctionnalitées.
 
 Les fondamentaux ayant été acquis, j'ai trouvé plusieurs solutions à la
-problématique principale qui est la suivante :
-\begin{itemize}
-    \item Peut-on fusionner des branches tout en choisissant de ne pas
-fusionner tout les commits ?
-\end{itemize}
+problématique principale qui est la suivante :\\ \quote{Peut-on fusionner des
+branches tout en choisissant de ne pas fusionner tout les commits ?}\\
 
-La commande \emph{git chery-pick \og nomducommit \fg{}} permet de \og cueillir
-\fg{} le commit que l'on veut fusionner, sinon on peut aussi rassembler les deux
-branches puis faire un \emph{git revert \og nomducommit \fg{}} pour retirer le
-commit après la fusion ou enfin faire trois branches distinctes pour ne pas
-avoir à faire ses opérations ci-dessus.
+\begin{itemize}
+    \item Tout dabord la commande \emph{git chery-pick \og nomducommit \fg{}}
+        permet de \og cueillir \fg{} le commit que l'on veut fusionner.
+    \item Ensuite on peut aussi rassembler les deux branches puis faire un
+        \emph{git revert \og nomducommit \fg{}} pour retirer le commit après la
+        fusion.
+    \item Enfin faire trois branches distinctes pour ne pas avoir à faire les
+        opérations ci-dessus.
+\end{itemize}
 
 Git répondant au besoin de l'entreprise, il a fallut que j'effectue des
 recherches pour que la migration Subversion\, \footnote{Le logiciel de gestion
@@ -68,33 +72,40 @@ vers Git ce fasse sans perte.
 \label{sec:L'installation}
 
 A peu près au milieu du stage, nous nous sommes heurté a un problème technique.
-Le serveur de l'entreprise ne contenai pas de version réçente de Git.  En
-sachant que celui-ci est mutualisé, nous n'avions pas les autorisations
-nécessaire pour installer une nouvelle version. Les logiciels libres sont
-réputé pour être rétro-compatibles mais en toutes logique il ne dispose pas des
-nouveautés sans les mettre à jour. Le problème ce situe sur le fait de pouvoir
-modifier des branches distantes dites "de suivi". Cette fonctionnalité permet à
-plusieurs développeur de travailler en même temps sur une branche différente de
-celle par defaut, par exemple pour experimenter de nouvelles choses à
-plusieurs. A ce moment là j'ai été très déçu et pensais mon travail
-inutilisable. Cependant, mes éfforts n'ont pas été vain puisque M.Dubourg après
-des recherches à trouver sur internet un utilisateur ayant reussi à installer
-git sur un serveur mutualisé. Nous n'avions peut-être pas les droits d'accès au
-dossiers des programmes mais rien ne nous empechai de compiler git a partir des
-sources pour nous crée en locale le logiciel. J'étais déçu d'avoir passer la
-partie compilation dans mon livre UNIX. Ceci étant fait, en redéfinissant la
-variable système qui stocke les chemins des applications utilisées notre
+Le serveur de l'entreprise ne contenai pas de version réçente de Git. En
+sachant que celui-ci est mutualisé\, \footnote{L'hébergement mutualisé est un
+concept d'hébergement internet destiné principalement à des sites web, dans un
+environnement technique dont la caractéristique principale est d'être partagé
+par plusieurs utilisateurs. L'administration du ou des serveurs est assurée par
+un intervenant tiers tel qu'OVH.}, nous n'avions pas les autorisations
+nécessaire pour installer une nouvelle version.
+
+Les logiciels libres sont réputé pour être rétro-compatibles mais en toute
+logique il ne dispose pas des nouveautés sans les mettre à jour. Le problème ce
+situe sur le fait de pouvoir modifier des branches distantes dites "de suivi".
+Cette fonctionnalité permet à plusieurs développeurs de travailler en même
+temps sur une branche différente de celle par defaut, par exemple pour
+experimenter de nouvelles implémentation à plusieurs. A ce moment là j'ai été
+très déçu et pensais mon travail inutilisable. Cependant, mes éfforts n'ont pas
+été vain puisque M.Dubourg après des recherches à trouver sur internet un
+utilisateur ayant reussi à installer git sur un serveur mutualisé. Nous
+n'avions peut-être pas les droits d'accès au dossiers des programmes mais rien
+ne nous empechai de compiler git a partir des sources pour nous crée en locale
+le logiciel\, \footnote{Le problème ne ce serai pas posé si j'avais lu le
+chapitre traitant de la compilation dans mon livre Linux, j'ai découvert cette
+méthode qu'après le stage...}. Ceci étant fait, en redéfinissant la variable
+système qui stocke les chemins des applications, nous avons pu utilisées notre
 compilé dernier cri.
 % section L'installation (end)
 
 \subsection{Le passage fatidique} % (fold)
 \label{sec:Le passage fatidique}
 
-Trois jours avant mon départ, le grand déménagement simpose. Toute la partie
+Trois jours avant mon départ, le grand déménagement s'impose. Toute la partie
 étude et confection du tutoriel git prend forme car j'ai basculer tout les
 projets qui était au préalable sur Subversion vers Git tout en gardant
 l'historique des changement provenant de SVN. Après quelques recherche, une
-commande poussé de Git ma permis de répondre a ce besoin.
+commande de Git ma permis de répondre à ce besoin.
 % section Le passage fatidique (end)
 
 \section{Les utilitaires} % (fold)
