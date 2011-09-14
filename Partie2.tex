@@ -111,6 +111,8 @@ simplement le contenu des champ pour connaitre l'issue finale, à savoir que je
 ne pouvais pas décider si les tables était similaire sans avoir balayer tout
 les champs et toutes les caractèristique de ceux-ci.
 
+\section{Affichage du résultat}
+
 Après tout ceci fini est optimisé, j'implémente une nouvelle fonctionnalité qui
 serai d'afficher un texte lisible qui énonce les differences des deux bases
 donnée. En fonction des résultats obtenu, je génère des balises html et du
@@ -131,60 +133,10 @@ dissocier la partie traitement de la partie affichage car il est vrai que mes
 méthodes était vraiment très sale. Pour résumer, j'écrivais des chaines de
 caractère dans une seule variable en écrivant les noms des tables ou des
 champs, en concatenant le tout avec des balises html de saut de ligne un peu
-nimporte où. J'ai du parcourir la doc de Smarty pour comprendre son
+nimporte où. J'ai du parcourir la documentation de Smarty pour comprendre son
 fonctionnement, il s'avère que la synthaxe est très particulière mais très
 éfficace. J'ai terminer par faire de l'agencement sur ma page pour que chaque
 ligne lisible par un néophyte soit en face de la ligne en SQL dans un tableau a
 deux colonnes tout ceci avec l'aide de smarty.
-
-A peu près au milieu du stage, nous nous sommes heurté a un problème technique.
-Le serveur de l'entreprise ne contenai pas de version réçente de Git.  En
-sachant que celui-ci est mutualisé, nous n'avions pas les autorisations
-nécessaire pour installer une nouvelle version. Les logiciels libres sont
-réputé pour être rétro-compatibles mais en toutes logique il ne dispose pas des
-nouveautés sans les mettre à jour. Le problème ce situe sur le fait de pouvoir
-modifier des branches distantes dites "de suivi". Cette fonctionnalité permet à
-plusieurs développeur de travailler en même temps sur une branche différente de
-celle par defaut, par exemple pour experimenter de nouvelles choses à
-plusieurs. A ce moment là j'ai été très déçu et pensais mon travail
-inutilisable. Cependant, mes éfforts n'ont pas été vain puisque M.Dubourg après
-des recherches à trouver sur internet un utilisateur ayant reussi à installer
-git sur un serveur mutualisé. Nous n'avions peut-être pas les droits d'accès au
-dossiers des programmes mais rien ne nous empechai de compiler git a partir des
-sources pour nous crée en locale le logiciel. J'étais déçu d'avoir passer la
-partie compilation dans mon livre UNIX.  Ceci étant fait, en redéfinissant la
-variable système qui stocke les chemains des applications utiliser notre
-compilé dernier cri.
-
-accès à la partie installation des programmes Mon travail suivant consistait a
-lister les dépôt Git qui sont en fin de compte les dossiers contenant les
-sources de l'entreprise mais versionnée dans une page php. En effet le fait que
-le serveur OVH centralise les codes sources de la société, les developpeurs
-devait récuperer une copie de ses dossiers pour pouvoir travailler dessus, le
-problème étant qu'il devait lancer FilleZilla pour connaitre les noms des
-dossiers Git puis recopier la bonne url avec le bon nom est très fastidieux.
-J'ai donc à l'aide de mes connaissance en système UNIX crée un script en
-langage PHP qui analyse un dossier défini et qui liste les differents dépôt
-tout en leur métant les bonnes addresses de téléchargement en préfixe. Du coup,
-un simple copier collé du dépôt voulu puis l'importation avec tortoiseGit ce
-fait en un clic. Gain de productivité et de simplicité en somme.
-
-Trois jours avant mon départ, le grand déménagement simpose. Toute la partie
-étude et confection du tutoriel git prend forme car j'ai basculer tout les
-progets qui était au préalable sur Subversion vers Git tout en gardant
-l'historique des changement provenant de SVN. Après quelques recherche, une
-commande poussé de Git ma permis de répondre a ce besoin.
-
-Nous avons longuement discuté sur le côté technique de git. En effet cette
-outil est à la base un logiciel libre provenant de linux et n'as pas
-d'interface graphique, ce choix est établi sur le fait qu'un développeur n'as
-pas forcement besoin de ça pour travailler (Sans nul doute que pour un
-graphiste, une souris est un élément indispensable pour ses créations mais pas
-pour produire du code) et aussi que cette outil regorge de fonctionnalité et
-donc très difficile à simplifier à travers une interface ne pouvant fonctionner
-qu'avec une souris. L'équipe n'étant pas très féru de ligne de commande et le
-logiciel TortoiseGit reprenant que les fonctions éssentielle de Git, il a fallu
-que je conçois des petits programmes qui fonctionne en un clic pour simplifier
-les choses répétitives.
 
 \clearpage

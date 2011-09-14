@@ -1,67 +1,60 @@
-\chapter{Le titre du chapitre}
+\chapter{Les utilitaires}
 
-\section{Le titre de la section qui va bien}
+\section{Introduction} % (fold)
 
-\subsection{Titre de la sous section}
+Nous avons longuement discuté sur le côté technique de git. En effet cette
+outil est à la base un logiciel libre provenant de linux et n'as pas
+d'interface graphique, ce choix est établi sur le fait qu'un développeur n'as
+pas forcement besoin de ça pour travailler (Sans nul doute que pour un
+graphiste, une souris est un élément indispensable pour ses créations mais pas
+pour produire du code) et aussi que cette outil regorge de fonctionnalité et
+donc très difficile à simplifier à travers une interface ne pouvant fonctionner
+qu'avec une souris. L'équipe n'étant pas très féru de ligne de commande et le
+logiciel TortoiseGit reprenant que les fonctions éssentielle de Git, il a fallu
+que je conçois des petits programmes qui fonctionne en un clic pour simplifier
+les choses répétitives.
 
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. On peut faire une citation \cite{MotClef4}.
-A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
+% section Introduction (end)
 
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
+\section{Lister les dépôts du serveur}
 
-%-- Note de bas de page sur les stades
-\protect\footnote{Par exemple, on peut faire un pied de page :
-\begin{itemize}
-\item avec une liste à puces ;
-\item avec une liste à puces ;
-\item avec une liste à puces.
-\end{itemize}
-}
-%-- Fin Note de bas de page sur les stades
+Mon travail suivant consistait a lister les dépôt Git dans une page php. En
+effet, le fait que le serveur OVH centralise les codes sources de la société,
+les developpeurs devait récuperer une copie de ses dossiers pour pouvoir
+travailler dessus, le problème étant qu'il devait lancer FilleZilla pour
+connaitre les noms des dossiers Git puis recopier la bonne url avec le bon nom
+est très fastidieux. J'ai donc à l'aide de mes connaissance en système UNIX
+crée un script en langage PHP qui analyse un dossier défini et qui liste les
+differents dépôt tout en leur métant les bonnes addresses de téléchargement en
+préfixe. Du coup, un simple copier-collé du lien du dépôt voulu dans
+tortoiseGit suffit à cloner. Gain de productivité et de simplicité en somme.
 
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
+\section{Mise à jour locale automatique} % (fold)
 
-\begin{itemize}
-\item avec une liste à puces ;
-\item avec une liste à puces ;
-\item avec une liste à puces.
-\end{itemize}
+Les developpeurs possédent des clones des dépôts distants\, \footnote{Ils ce
+trouvent tous sur le serveur OVH qui sert de point de rencontre comme nous
+l'avons vu.} en locale pour bien évidament pour maintenir le code source. Le
+fait qu'il y ai une multitude de dépôts implique qu'il faut mettre à jour les
+clones locaux à chaque fois pour récuperer les modifications des autres
+développeurs ce qui est très répétitif et fastidieux. J'ai donc crée un script
+Batch\, \footnote{Désigne un fichier contenant une suite de commandes qui
+seront traitées automatiquement par Windows \copyright.} qui parcours tout les
+dossiers contenant les sources des dépôts et les mets a jour. Pour cela j'ai
+parcouru la documentation de la console windows et ça n'as pas été évident du
+tout. Pour l'anecdote, je devais à partir de mon MacBook\, \footnote{Système de
+type UNIX.}, lancer une machine virtuelle windows\, \footnote{À partir du
+logiciel VirtualBox.} pour crée mon script batch qui lance une console Linux
+pour faire la mise à jour...
 
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
+% section Mise à jour distante automatique (end)
 
-\subsubsection{Titre de la sous sous section}
+\section{Mise en production automatique} % (fold)
 
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
+Une fois que les développeurs sont satisfait de leurs modifications, il doivent
+mettre à jour le dépots distant pour partager leurs travaux. Une fois ses
+modifications validées par le chef de projet, celui-ci doit mettre en ligne sur
+le dépôt de production. J'ai crée un script Batch pour que ça ce fasse en un
+clic.
 
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-\subsubsection{Titre de la sous sous section}
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-\subsection{Conclusion}
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-\subsection{Titre de la sous section}
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. On peut faire une citation \cite{MotClef4}.
-A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-\subsection{Titre de la sous section}
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. On peut faire une citation \cite{MotClef4}.
-A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer. Ici du texte et du blabla, ce que l'on veut dire et écrire. A remplacer.
-
+% section Mise en production automatique (end)
 \clearpage
