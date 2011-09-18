@@ -15,6 +15,13 @@ chaque fichier et dans quel but ; si deux personnes travaillent simultanément
 sur un même fichier, ils sont capables d’assembler (de fusionner) leurs
 modifications et d’éviter que le travail d’une de ces personnes ne soit écrasé.
 
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.8]{images/workflow.png}
+\caption{Schéma illustrant les échanges entre le serveur et les développeurs.}
+\end{center}
+\end{figure}
+
 Ces logiciels ont donc par conséquent deux utilités principales :
 \begin{itemize}
     \item suivre l’évolution d’un code source, pour retenir les modifications
@@ -41,9 +48,12 @@ virtuellement un dépôt et de basculer de l'original à la copie pour par exemp
 développer sur la branche principale les nouvelles fonctionnalités et sur
 l'autre branche les corrections d'erreurs.
 
+\begin{figure}
 \begin{center}
-\includegraphics{images/branches.png}
+\includegraphics[scale=0.8]{images/branches.png}
+\caption{master, develop et topic, trois branches d'un même dépôt.}
 \end{center}
+\end{figure}
 
 \emph{La fusion} est l'opération de rassemblement des deux branches en une,
 c'est-à-dire dans le cas précédent de regrouper les corrections d'erreurs avec
@@ -143,7 +153,12 @@ bonnes adresses de téléchargement en préfixe. Du coup, un simple copier-colle
 du lien du dépôt voulu dans tortoiseGit suffit à cloner. Gain de productivité
 et de simplicité réunie.
 
-% image du repo.php
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.5]{images/repo.png}
+\caption{La liste des dépôts cliquables.}
+\end{center}
+\end{figure}
 
 % section Mise à jour distante automatique (end)
 
