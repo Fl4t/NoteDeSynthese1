@@ -86,11 +86,16 @@ capable de comparer les deux tableaux d'objets par rapport à leurs noms :
     données, on compare l'intérieur des tables.
 \end{itemize}
 
-J'ai du revoir mon algorithme plusieurs fois car la fonction de comparaison de
-chaine de caractère \emph{strnatcmp} comparait les mots comme un humain le
-ferait, alors que mySQL trie les tables de manière binaire c'est a dire les
-codes Ascii des caractères ce qui fesait que la première fonction donner des
-resultats érronées comme le montre le tableau ci-dessous.
+J'ai dû revoir mon algorithme plusieurs fois, car la fonction de comparaison
+de chaine de caractère \emph{strnatcmp} comparait les mots comme un humain le
+ferait, alors que mySQL trie les tables de manière binaire c'est-à-dire les
+codes ASCII\, \footnote{\emph{American Standard Code for Information
+Interchange.} ou \og Code américain normalisé pour l'échange d'information
+\fg{} est la norme de codage de caractères en informatique la plus connue, la
+plus ancienne et la plus largement compatible. ASCII contient les caractères
+nécessaires pour écrire en anglais.} des caractères ce qui faisait que la
+première fonction donner des résultats erronés comme le montre le tableau
+ci-dessous.
 
 \begin{center}
 \begin{tabular}{|c|c|}
@@ -110,15 +115,16 @@ resultats érronées comme le montre le tableau ci-dessous.
 
 \section{Comparaison des champs}
 
-Maintenant que je me retrouvai dans des tables ayant les mêmes noms, il fallait
-que je compare le contenu, lui aussi en comparant le nom des champs, il m'as
-pas fallut longtemps pour comprendre que l'algorithme était exactement le même,
-le plus dur étant de savoir comment j'allais faire pour me répeter le minimum
-possible ce qui a bloqué énormement mon avancement pour pas grand chose.
-M.\bsc{Dubourg} constatant que je n'avançais plus ma conseiller de faire comme
-je l'avais appris plutôt que d'éssayer de faire de la POO tout de suite. Une
-fois le script fonctionnel mais très mal optimisé et peu lisible, mon tuteur
-m'a guidé via des annotations est des explications poussées sur la marche qui
+Maintenant que j'étais dans la situation des tables ayant les mêmes noms, il
+fallait que je compare le contenu, lui aussi en comparant le nom des champs, il
+m'a pas fallut longtemps pour comprendre que l'algorithme était exactement le
+même, le plus dur étant de savoir comment j'allais faire pour me répéter le
+minimum possible ce qui a bloqué énormément mon avancement pour pas
+grand-chose. M.\bsc{Dubourg} constatant que je n'avançais plus m'a conseillé de
+faire comme je l'avais appris plutôt que d'essayer de faire de la POO\,
+\footnote{\emph{Programmation Orienté Objet.}} tout de suite. Une fois le
+script fonctionnel, mais très mal optimisé et peu lisible, mon tuteur m'a guidé
+via des annotations et des explications poussées sur la marche à suivre qui
 semblai la meilleur. De fil en aiguille le code source est passé d'environ
 trois-cent cinquante lignes à cent cinquante.
 
