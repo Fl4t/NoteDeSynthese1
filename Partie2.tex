@@ -145,13 +145,15 @@ bases données. En fonction des résultats obtenus, je génère des balises HTML
 \footnote{L’ \emph{Hypertext Markup Language} est un langage de balisage conçu
 pour représenter les pages web.} et du texte pour que cela soit compréhensible
 à l'utilisateur. Ceci étant fait assez rapidement je suis passé à la génération
-des requêtes SQL permettant de mettre à jour la base obsolète depuis la base de
+des requêtes SQL\, \footnote{\emph{Structured Query Language} est un langage
+informatique normalisé qui sert à effectuer des opérations sur des bases de
+données.} permettant de mettre à jour la base obsolète depuis la base de
 référence. C'est à ce stade que j'ai constaté que je ne pourrais pas prendre en
 compte les clés étrangères dans mon code à moins de revoir totalement tout le
 script. M.\bsc{Dubourg} m'a rassuré sur le fait que l'entreprise n'utilisai pas
 le type de base de données myISAM\, \footnote{L'organisation séquentielle
 indexée, ou \emph{Indexed Sequential Access Method} en anglais, est un mode
-d'organisation des fichiers dans les bases de données.}} et que donc aucune de
+d'organisation des fichiers dans les bases de données.} et que donc aucune de
 leurs tables comportait de clé étrangère, cependant les clés primaires
 concaténées restent problématique, car pas imaginer pendant la conception. Nous
 avons décidé que la création de ce genre de cas se fera à la main pour pas
