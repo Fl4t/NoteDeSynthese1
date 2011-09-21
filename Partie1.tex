@@ -66,13 +66,13 @@ Peut-on fusionner des branches tout en choisissant de ne pas fusionner
 tout les commits ? \newline
 
 \begin{itemize}
-    \item Tout dabord la commande \emph{git chery-pick \og nomducommit \fg{}}
-        permet de \og cueillir \fg{} le commit que l'on veut fusionner.
-    \item Ensuite on peut aussi rassembler les deux branches puis faire un
-        \emph{git revert \og nomducommit \fg{}} pour inverser les modifications
-        du commit après la fusion.
+    \item Tout dabord la commande \texttt{git chery-pick nomducommit} permet
+    de \og cueillir \fg{} le commit que l'on veut fusionner.
+    \item Ensuite on peut aussi rassembler les deux branches puis executer la
+    commande \texttt{git revert nomducommit} pour inverser les modifications
+    du commit après la fusion.
     \item Enfin faire trois branches distinctes pour ne pas avoir à faire les
-        opérations ci-dessus\, \footnote{Cette solution à été choisie.}.
+    opérations ci-dessus\, \footnote{Cette solution à été choisie.}.
 \end{itemize}
 
 Git répondant au besoin de l'entreprise, il a fallu que j'effectue des
