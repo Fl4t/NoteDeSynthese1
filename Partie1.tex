@@ -15,13 +15,6 @@ chaque fichier et dans quel but ; si deux personnes travaillent simultanément
 sur un même fichier, ils sont capables d’assembler (de fusionner) leurs
 modifications et d’éviter que le travail d’une de ces personnes ne soit écrasé.
 
-\begin{figure}
-\begin{center}
-\includegraphics[scale=0.8]{images/workflow.png}
-\caption{Schéma illustrant les échanges entre le serveur et les développeurs.}
-\end{center}
-\end{figure}
-
 Ces logiciels ont donc par conséquent deux utilités principales :
 \begin{itemize}
     \item suivre l’évolution d’un code source, pour retenir les modifications
@@ -31,6 +24,19 @@ cas de problème ;
 Si deux personnes modifient un même fichier en même temps, leurs modifications
 doivent pouvoir être fusionnées sans perte d’information.
 \end{itemize}
+
+Chaque utilisateur possède une copie du code sources ainsi que de toutes les
+versions précédentes, ce qui n'est pas le cas de l'éxistant. La figure
+\ref{workflow:} illustre bien le fonctionnement global de Git.
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.8]{images/workflow.png}
+\caption{Le serveur sert de point de rencontre entre les développeurs et possède
+lui aussi l’historique des versions.}
+\label{workflow:}
+\end{center}
+\end{figure}
 
 \subsection{Les rudiments}
 
