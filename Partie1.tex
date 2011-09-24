@@ -25,9 +25,9 @@ Si deux personnes modifient un même fichier en même temps, leurs modifications
 doivent pouvoir être fusionnées sans perte d’information.
 \end{itemize}
 
-Chaque utilisateur possède une copie du code sources ainsi que de toutes les
-versions précédentes, ce qui n'est pas le cas de l'éxistant. La figure
-\ref{workflow:} illustre bien le fonctionnement global de Git.
+Chaque utilisateur possède une copie du code source ainsi que toutes les
+versions précédentes de celui-ci, ce qui n'est pas le cas de l'éxistant. La
+figure \ref{workflow:} illustre bien le fonctionnement global de Git.
 
 \begin{figure}
 \begin{center}
@@ -41,7 +41,7 @@ lui aussi l’historique des versions.}
 \subsection{Les rudiments}
 
 \emph{Un commit} correspond à un enregistrement des modifications dans le
-temps. Admettons un fichier contenant un paragraphe, si nous ajoutons un
+temps. Admettons un fichier qui contient un paragraphe, si nous ajoutons un
 deuxième paragraphe, le fichier sera considéré comme modifié par Git\,
 \footnote{Créé par Linus Torvalds, qui est entre autres l'homme à l'origine de
 Linux. Il est de type distribué.}, pour enregistrer la modification on effectue
@@ -50,8 +50,8 @@ sauvegardez votre progression à chaque étape franchie.
 
 \emph{Une branche} représente une \og copie virtuelle \fg{} du dossier
 contenant les fichiers sources. En effet, il est possible de cloner
-virtuellement un dépôt et de basculer de l'original à la copie pour par exemple
-développer sur la branche principale les nouvelles fonctionnalités et sur
+virtuellement un dépôt et de basculer de l'original à la copie pour développer,
+par exemple, sur la branche principale les nouvelles fonctionnalités et sur
 l'autre branche les corrections d'erreurs comme nous le montre la figure
 \ref{branches:}.
 
@@ -86,35 +86,35 @@ tout les commits ? \newline
 Git répondant au besoin de l'entreprise, il a fallu que j'effectue des
 recherches pour que la migration Subversion\, \footnote{Le logiciel de gestion
 de versions le plus utilisé à l'heure actuelle. Il est de type centralisé.}
-vers Git ce fasse sans perte.
+vers Git se fasse sans perte.
 
 \subsection{L'installation} % (fold)
 
-À peu près au milieu du stage, nous nous sommes heurté a un problème technique.
-Le serveur de l'entreprise ne contenait pas de version récente de Git. En
-sachant que celui-ci est mutualisé\, \footnote{L'hébergement mutualisé est un
-concept d'hébergement internet destiné principalement à des sites web, dans un
-environnement technique dont la caractéristique principale est d'être partagé
-par plusieurs utilisateurs. L'administration du ou des serveurs est assurée par
-un intervenant tiers tel qu'OVH.}, nous n'avions pas les autorisations
-nécessaires pour installer une nouvelle version.
+À peu près au milieu du stage, nous nous sommes heurtés à un problème
+technique. Le serveur de l'entreprise ne contenait pas de version récente de
+Git. En sachant que celui-ci est mutualisé\, \footnote{L'hébergement mutualisé
+est un concept d'hébergement internet destiné principalement à des sites web,
+dans un environnement technique dont la caractéristique principale est d'être
+partagé par plusieurs utilisateurs. L'administration du ou des serveurs est
+assurée par un intervenant tiers tel qu'OVH.}, nous n'avions pas les
+autorisations nécessaires pour installer une nouvelle version.
 
-Les logiciels libres sont réputé pour être rétro-compatibles, mais en toute
+Les logiciels libres sont réputés pour être rétro-compatibles, mais en toute
 logique il ne dispose pas des nouveautés sans les mettre à jour. Le problème
 est qu'on ne pouvait pas modifier des branches distantes dites \og de suivi
 \fg{}. Cette fonctionnalité permet à plusieurs développeurs de travailler en
 même temps sur une branche différente de celle par défaut, par exemple pour
 expérimenter de nouvelles implémentations à plusieurs. À ce moment-là j'ai été
 très déçu et pensais mon travail inutilisable. Cependant, mes efforts n'ont pas
-été vain puisque M.\bsc{Dubourg} après des recherches à trouver sur internet un
-utilisateur ayant réussi à installer Git sur un serveur mutualisé. Nous
-n'avions peut-être pas les droits d'accès au dossiers des programmes mais rien
-ne nous empêchai de compiler Git à partir des sources pour nous créer en locale
-le logiciel\, \footnote{Le problème ne ce serait pas posé si j'avais lu le
-chapitre traitant de la compilation dans mon livre Linux, j'ai découvert cette
-méthode qu'après le stage \ldots{}}. Ceci étant fait, en redéfinissant la variable
-système qui stocke les chemins des applications, nous avons pu utiliser notre
-compilé dernier cri.
+été vain puisque M.\bsc{Dubourg} après quelques recherches, a trouvé sur
+internet un utilisateur ayant réussi à installer Git sur un serveur mutualisé.
+Nous n'avions pas les droits d'accès aux dossiers des programmes mais rien ne
+nous empêchait de compiler Git à partir des sources pour nous permettre de
+créer en local le logiciel\, \footnote{Le problème ne ce serait pas posé si
+j'avais lu le chapitre traitant de la compilation dans mon livre Linux, je n'ai
+découvert cette méthode qu'après le stage \ldots{}}. Ceci étant fait, en
+redéfinissant la variable système qui stocke les chemins des applications, nous
+avons pu utiliser notre compilé dernier cri.
 
 % section L'installation (end)
 
@@ -122,9 +122,9 @@ compilé dernier cri.
 
 Trois jours avant mon départ, le grand déménagement s'impose. Toute la partie
 étude et confection du tutoriel Git prend forme car j'ai basculé tous les
-projets qui était au préalable sur Subversion vers Git tout en gardant
+projets qui étaient au préalable sur Subversion vers Git tout en gardant
 l'historique des changements provenant de SVN. Après quelques recherches, une
-commande de Git m'a permis de répondre à ce besoin.
+commande Git m'a permis de répondre à ce besoin.
 
 \begin{lstlisting}
 git-svn clone http://svn/repo/here/trunk
@@ -134,12 +134,12 @@ git-svn clone http://svn/repo/here/trunk
 \section{Les utilitaires} % (fold)
 
 Nous avons longuement discuté sur le côté technique de Git. En effet cet outil
-est à la base un logiciel libre provenant de Linux et n'as pas d'interface
-graphique, ce choix est établi sur le fait qu'un développeur n'ait pas
-forcement besoin de ça pour travailler (Sans nul doute que pour un graphiste,
-une souris est un élément indispensable pour ses créations, mais pas pour
-produire du code) et aussi que ce logiciel regorge de fonctionnalité et donc
-très difficile à simplifier à travers une interface ne pouvant fonctionner
+est à la base un logiciel libre provenant de Linux et n'a pas d'interface
+graphique, ce choix est établi sur le fait qu'un développeur n'a pas forcement
+besoin de cela pour travailler\, \footnote{Sans nul doute que pour un
+graphiste, une souris est un élément indispensable pour ses créations, mais pas
+pour produire du code.} et aussi que ce logiciel regorge de fonctionnalités et
+donc très difficile à simplifier à travers une interface ne pouvant fonctionner
 qu'avec une souris. L'équipe n'étant pas très férue de ligne de commande et le
 logiciel TortoiseGit reprenant que les fonctions essentielles de Git, il a
 fallu que je conçois des petits programmes qui fonctionnent en un clic pour
@@ -149,19 +149,20 @@ simplifier les choses répétitives.
 
 \subsection{Lister les dépôts du serveur}
 
-Mon travail suivant consistait a lister les dépôts Git dans une page PHP\,
+Mon travail suivant consistait à lister les dépôts Git dans une page PHP\,
 \footnote{\emph{Hypertext Preprocessor} est un langage de scripts libre
-principalement utilisé pour produire des pages Web dynamiques.}. En effet, le
-fait que le serveur OVH centralise les codes sources de la société, les
-développeurs devaient récupérer une copie de ses dossiers pour pouvoir
-travailler dessus, le problème étant qu'il est très fastidieux de lancer
-FilleZilla pour connaitre les noms des dossiers Git puis recopier le bon lien
-hypertexte avec le bon chemin d'arborescence. J'ai donc à l'aide de mes
-connaissances en système UNIX crée un script qui analyse un dossier défini et
-qui liste les différents dépôt tout en leur mettant les bonnes adresses de
+principalement utilisé pour produire des pages Web dynamiques.}. Le serveur OVH
+centralise les codes sources de la société, les développeurs, eux doivent
+récupérer une copie de ses dossiers pour pouvoir travailler dessus. Seulement,
+lancer FilleZilla\, \footnote{FileZilla est un logiciel gratuit qui permet de
+se connecter à distance sur un serveur pour y télécharger des fichiers.} pour
+connaitre les noms des dossiers Git puis recopier le bon lien hypertexte avec
+le bon chemin d'arborescence est une tâche fastidieuse.  J'ai donc, à l'aide de
+mes connaissances en système UNIX, crée un script qui analyse un dossier défini
+et qui liste les différents dépôts tout en leurs mettant les bonnes adresses de
 téléchargement en préfixe. Du coup, un simple copier-coller du lien du dépôt
-voulu dans tortoiseGit suffit à cloner. Gain de productivité et de simplicité
-réunie.
+voulu dans tortoiseGit suffit pour cloner. Gain de productivité et de
+simplicité réunie.
 
 \begin{figure}
 \begin{center}
@@ -174,11 +175,12 @@ réunie.
 
 \subsection{Mise en production automatique} % (fold)
 
-Une fois que les développeurs sont satisfait de leurs modifications, ils
+Une fois que les développeurs sont satisfaits de leurs modifications, ils
 doivent mettre à jour le dépôt distant pour partager leurs travaux. Une fois
-ses modifications validées par le chef de projet, celui-ci doit mettre en ligne
+les modifications validées par le chef de projet, celui-ci doit mettre en ligne
 sur le dépôt de production. J'ai créé un script Batch \og modèle \fg{} pour
 que cela ce fasse en un clic.\\
+
 pull-dossier.cmd :
 \begin{lstlisting}
 set PATH=%HOMEPATH%;%PATH%
@@ -194,18 +196,19 @@ exit;"
 
 Les développeurs possèdent des clones des dépôts distants\, \footnote{Ils se
 trouvent tous sur le serveur OVH qui sert de point de rencontre comme nous
-l'avons vu.} en locale pour bien évidemment pour maintenir le code source. Le
-fait qu'il y ait une multitude de dépôts implique qu'il faut mettre à jour les
-clones locaux à chaque fois pour récupérer les modifications des autres
-développeurs ce qui est très répétitif et fastidieux. J'ai donc créé un script
-Batch\, \footnote{Désigne un fichier contenant une suite de commandes qui
-seront traitées automatiquement par Windows\, \copyright.} qui parcourt tous les
-dossiers contenant les sources des dépôts et les mets à jour. Pour cela j'ai
-arpenté la documentation de la console windows\, et ça n'a pas été évident du
-tout. Pour l'anecdote, je devais à partir de mon MacBook\, \footnote{Système de
-type UNIX.}, lancer une machine virtuelle Windows\, \footnote{À partir du
-logiciel VirtualBox.} pour créer mon script Batch qui enfin lance une console
-Linux pour faire la mise à jour \ldots{} \\
+l'avons vu.} en local pour bien évidemment maintenir le code source. Le fait
+qu'il y ait une multitude de dépôts implique une mise à jour des clones locaux
+pour récupérer les modifications des autres développeurs ce qui est très
+répétitif. J'ai donc créé un script Batch\, \footnote{Désigne un fichier qui
+contient une suite de commandes qui seront traitées automatiquement par
+Windows\, \copyright.} qui parcourt tous les dossiers englobant les sources des
+dépôts et les mets à jour. Pour cela j'ai parcouru la documentation de la
+console windows\, et ça n'a pas été évident du tout. Pour l'anecdote, je devais
+à partir de mon MacBook\, \footnote{Système de type UNIX.}, lancer une machine
+virtuelle Windows\, \footnote{À partir du logiciel VirtualBox.} pour créer mon
+script Batch qui s'execute en console, et qui lance enfin un terminal Linux
+pour faire la mise à jour \ldots{} \\
+
 pullall.cmd :
 \begin{lstlisting}
 "C:\Program Files\TortoiseGit\bin\pageant.exe"
