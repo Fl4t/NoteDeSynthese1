@@ -1,6 +1,8 @@
-\chapter{La gestion de version}
+\chapter{La gestion de version} % (fold)
+\label{cha:La gestion de version}
 
-\section{Git : le gestionnaire de code source}
+\section{Git : Le gestionnaire de code source} % (fold)%{{{
+\label{sec:Git : Le gestionnaire de code source}
 
 Les logiciels de gestion de versions ou VCS\, \footnote{\emph{Version Control
 System.}} sont utilisés principalement par les développeurs. En effet, ils sont
@@ -39,8 +41,6 @@ lui aussi l’historique des versions.}
 \end{center}
 \end{figure}
 
-\subsection{Les rudiments}
-
 \emph{Un commit} correspond à un enregistrement des modifications dans le
 temps. Admettons un fichier qui contient un paragraphe, si nous ajoutons un
 deuxième paragraphe, le fichier sera considéré comme modifié par Git\,
@@ -55,6 +55,9 @@ virtuellement un dépôt et de basculer de l'original à la copie pour développ
 par exemple, sur la branche principale les nouvelles fonctionnalités et sur
 l'autre branche les corrections d'erreurs comme nous le montre la figure
 \ref{branches}.
+\subsection{Les rudiments} % (fold)%{{{
+\label{sub:Les rudiments}
+
 
 \begin{figure}
 \begin{center}
@@ -88,8 +91,10 @@ Git répondant au besoin de l'entreprise, il a fallu que j'effectue des
 recherches pour que la migration Subversion\, \footnote{Le logiciel de gestion
 de versions le plus utilisé à l'heure actuelle. Il est de type centralisé.}
 vers Git se fasse sans perte.
+% subsection Les rudiments (end)%}}}
 
-\subsection{L'installation} % (fold)
+\subsection{L'installation} % (fold)%{{{
+\label{sub:L'installation}
 
 À peu près au milieu du stage, nous nous sommes heurtés à un problème
 technique. Le serveur de l'entreprise ne contenait pas de version récente de
@@ -116,10 +121,10 @@ j'avais lu le chapitre traitant de la compilation dans mon livre Linux, je n'ai
 découvert cette méthode qu'après le stage\dots}. Ceci étant fait, en
 redéfinissant la variable système qui stocke les chemins des applications, nous
 avons pu utiliser notre compilé dernier cri.
+% subsection L'installation (end)%}}}
 
-% section L'installation (end)
-
-\subsection{Le passage fatidique} % (fold)
+\subsection{Le passage fatidique} % (fold)%{{{
+\label{sub:Le passage fatidique}
 
 Trois jours avant mon départ, le grand déménagement s'impose. Toute la partie
 étude et confection du tutoriel Git prend forme car j'ai basculé tous les
@@ -130,9 +135,10 @@ commande Git m'a permis de répondre à ce besoin.\\
 \begin{lstlisting}[basicstyle=\ttfamily\small, frame=trBL]
 git-svn clone http://svn/repo/here/trunk
 \end{lstlisting}
-% section Le passage fatidique (end)
+% subsection Le passage fatidique (end)%}}}
+% section Git : Le gestionnaire de code source (end)%}}}
 
-\section{Le tutoriel utilisateur} % (fold)
+\section{Le tutoriel utilisateur} % (fold)%{{{
 \label{sec:Le tutoriel utilisateur}
 
 Pour aider les développeurs a intégré le nouveau gestionnaire de
@@ -154,11 +160,10 @@ détails, je liste ici les chapitres qui le compose :
     \item Quelle est la methode de travail ?
     \item Annexe.
 \end{enumerate}
+% section Le tutoriel utilisateur (end)%}}}
 
-% section Le tutoriel utilisateur (end)
-
-\section{Les utilitaires} % (fold)
-
+\section{Les utilitaires} % (fold)%{{{
+\label{sec:Les utilitaires}
 Nous avons longuement discuté sur le côté technique de Git. En effet cet outil
 est à la base un logiciel libre provenant de Linux et n'a pas d'interface
 graphique, ce choix est établi sur le fait qu'un développeur n'a pas forcément
@@ -171,9 +176,8 @@ logiciel TortoiseGit reprenant que les fonctions essentielles de Git, il a
 fallu que je conçois des petits programmes qui fonctionnent en un clic pour
 simplifier les choses répétitives.
 
-% section Introduction (end)
-
-\subsection{Lister les dépôts du serveur}
+\subsection{Lister les dépôts du serveur} % (fold)%{{{
+\label{sub:Lister les dépôts du serveur}
 
 Mon travail suivant consistait à lister les dépôts Git dans une page PHP\,
 \footnote{\emph{Hypertext Preprocessor} est un langage de scripts libre
@@ -197,10 +201,10 @@ tortoiseGit suffit pour cloner. Gain de productivité et de simplicité réunie.
 \label{repo}
 \end{center}
 \end{figure}
+% subsection Lister les dépôts du serveur (end)%}}}
 
-% section Mise à jour distante automatique (end)
-
-\subsection{Mise en production automatique} % (fold)
+\subsection{Mise en production automatique} % (fold)%{{{
+\label{sub:Mise en production automatique}
 
 Une fois que les développeurs sont satisfaits de leurs modifications, ils
 doivent mettre à jour le dépôt distant pour partager leurs travaux. Une fois
@@ -213,10 +217,10 @@ set PATH=%HOMEPATH%;%PATH%
 plink identit@ftp.identit.fr -l identit -pw MOTDEPASSE
 "cd LEDOSSIER; git pull; exit;"
 \end{lstlisting}
+% section Mise en production automatique (end)%}}}
 
-% section Mise en production automatique (end)
-
-\subsection{Mise à jour locale automatique} % (fold)
+\subsection{Mise à jour locale automatique} % (fold)%{{{
+\label{sub:Mise à jour locale automatique}
 
 Les développeurs possèdent des clones des dépôts distants\, \footnote{Ils se
 trouvent tous sur le serveur OVH qui sert de point de rencontre comme nous
@@ -245,5 +249,6 @@ do
     git pull; cd ../..;
 done"
 \end{lstlisting}
-
-\clearpage
+% subsection Mise à jour locale automatique (end)%}}}
+% section Les utilitaires (end)%}}}
+% chapter La gestion de version (end)

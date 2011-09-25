@@ -1,7 +1,11 @@
-\chapter{Script de comparaison}
+\chapter{Script de comparaison} % (fold)
+\label{cha:Script de comparaison}
 
 N'ayant pas de notions de programmation orientée objet\, \footnote{Ce qui sera
 enseignée en deuxième année.} je n'ai pas pu rejoindre les développeurs de
+\section{Le besoin} % (fold)%{{{
+\label{sec:Le besoin}
+
 l'entreprise dans l'application qu'ils développaient, cela dit on m'a confié
 une tâche annexe qui est la comparaison des bases de données. Le schéma
 \ref{bdd} en page \pageref{bdd} nous en illustre une structure basique.
@@ -13,6 +17,7 @@ une tâche annexe qui est la comparaison des bases de données. Le schéma
 \caption{Un schéma de base de données simple.}
 \label{bdd}
 \end{figure}
+% section Le besoin (end)%}}}
 
 Le besoin premier de ce script est de consulter les différences qui existent
 entre une base de référence est une base à mettre à jour. Dans le cas de
@@ -22,8 +27,8 @@ fournies au client et pour moi, m'initier à la programmation orientée objet\,
 consiste à utiliser des objets ; un objet représente un concept, une idée ou
 toute entité du monde physique, comme une voiture, une personne ou encore une
 page d'un livre.} dès le premier stage.
-
-\section{Le départ}
+\section{Les prémices} % (fold)%{{{
+\label{sec:Les prémices}
 
 À l'aide d'un cours sur internet, j'ai commencé à créer ma première classe.
 Cette classe après instanciation représenterait l'objet \og base de données
@@ -62,8 +67,13 @@ stricte, ce qui entravait le lancement de la page principale. Il était aussi au
 niveau du cache de mon navigateur. En effet, j'ai du vider celui-ci pour faire
 enfin apparaitre le site proprement. De nombreuses heures de recherche juste à
 cause d'un cache internet non vidé fut extrêmement frustrant\dots
+% section Les prémices (end)%}}}
 
-\section{Comparaison des tables}
+\section{Le script PHP} % (fold)%{{{
+\label{sec:Le script PHP}
+
+\subsection{Comparaison des tables} % (fold)%{{{
+\label{sub:Comparaison des tables}
 
 Il a fallu dans un premier temps que je recherche comment extraire le nom d'une
 base ainsi que le nom de ses tables. La réponse à cette question est dans la
@@ -115,8 +125,10 @@ fonction donnait des résultats erronés comme le montre le tableau \ref{tab}.
 \label{tab}
 \end{center}
 \end{table}
+% subsection Comparaison des tables (end)%}}}
 
-\section{Comparaison des champs}
+\subsection{Comparaison des champs} % (fold)%{{{
+\label{sub:Comparaison des champs}
 
 J'étais dans la situation des tables ayant les mêmes noms, il fallait que je
 compare le contenu à partir du nom des champs. Il ne m'a pas fallut longtemps
@@ -135,8 +147,10 @@ parcourus avait le même nom. Je comparais tout simplement le contenu des champs
 pour connaitre l'issue finale, à savoir que je ne pouvais pas décider si les
 tables étaient similaire sans avoir balayé tous les champs et toutes les
 caractéristiques de ceux-ci.
+% subsection Comparaison des champs (end)%}}}
 
-\section{Affichage du résultat}
+\subsection{Affichage du résultat} % (fold)%{{{
+\label{sub:Affichage du résultat}
 
 Après tout ceci fini et optimisé, j'implémente une nouvelle fonctionnalité qui
 permettrait d'afficher un texte lisible qui énonce les différences des deux
@@ -169,5 +183,6 @@ son fonctionnement, il s'avère que la syntaxe est très particulière mais trè
 efficace. J'ai terminé par faire de l'agencement sur ma page pour que chaque
 ligne lisible par un néophyte soit en face de la ligne traduite en SQL dans un
 tableau à deux colonnes.
-
-\clearpage
+% subsection Affichage du résultat (end)%}}}
+% section Le script PHP (end)%}}}
+% chapter Script de comparaison (end)
