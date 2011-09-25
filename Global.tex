@@ -31,8 +31,6 @@
 % Pour l'ajout des images
 \usepackage{graphicx}
 
-%\sloppy %% respecter toujours la marge de droite
-
 % Pour ne plus avoir le mot chapitre
 \usepackage{titlesec}
 \titleformat{\chapter}[hang]{\bf\huge}{\thechapter}{2pc}{}
@@ -71,7 +69,9 @@
 % Pour écrire Sommaire au lieu de table des matières
 \renewcommand{\contentsname}{Sommaire}
 
-\tableofcontents
+% Interligne pour le sommaire
+{\setlength{\baselineskip}{1.6\baselineskip}
+\tableofcontents\par}
 
 \input{Intro}
 
