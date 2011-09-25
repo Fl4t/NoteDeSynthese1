@@ -5,7 +5,7 @@
 \usepackage{textcomp}
 \usepackage[T1]{fontenc}
 
-% Style de page personalisé
+% Style de page personalisé%{{{
 \usepackage{fancyhdr}
 \pagestyle{fancy} % Ceci permet d’avoir les noms de chapitre et de section % en minuscules
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
@@ -20,7 +20,10 @@
 \fancypagestyle{plain}{ % pages de tetes de chapitre
 \fancyhead{}	% supprime l’entete
 \renewcommand{\headrulewidth}{0pt} % et le filet
-}
+}%}}}
+
+% Marge pour la reliure
+\addtolength{\hoffset}{+0.5cm}
 
 % Pour l'ajout de code source
 \usepackage{listings}
