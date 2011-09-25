@@ -4,6 +4,15 @@
 \usepackage{lmodern}
 \usepackage{textcomp}
 \usepackage[T1]{fontenc}
+\usepackage{listings} % Pour l'ajout de code source
+\usepackage{graphicx} % Pour l'ajout des images
+\usepackage{titlesec} % Pour ne plus avoir le mot chapitre
+
+% Pas de mot 'chapitre'
+\titleformat{\chapter}[hang]{\bf\huge}{\thechapter}{2pc}{}
+
+% Marge pour la reliure
+\addtolength{\hoffset}{+0.5cm}
 
 % Style de page personalisé%{{{
 \usepackage{fancyhdr}
@@ -22,20 +31,7 @@
 \renewcommand{\headrulewidth}{0pt} % et le filet
 }%}}}
 
-% Marge pour la reliure
-\addtolength{\hoffset}{+0.5cm}
-
-% Pour l'ajout de code source
-\usepackage{listings}
-
-% Pour l'ajout des images
-\usepackage{graphicx}
-
-% Pour ne plus avoir le mot chapitre
-\usepackage{titlesec}
-\titleformat{\chapter}[hang]{\bf\huge}{\thechapter}{2pc}{}
-
-%Couverture
+%Couverture%{{{
 
 \title
 {
@@ -58,7 +54,7 @@
     Tuteur de stage : M.\bsc{Anselin}\\
 	Maître de stage : M.\bsc{Dubourg}
 	}
-}
+}%}}}
 
 \begin{document}
 
