@@ -125,9 +125,9 @@ Trois jours avant mon départ, le grand déménagement s'impose. Toute la partie
 étude et confection du tutoriel Git prend forme car j'ai basculé tous les
 projets qui étaient au préalable sur Subversion vers Git tout en gardant
 l'historique des changements provenant de SVN. Après quelques recherches, une
-commande Git m'a permis de répondre à ce besoin.
+commande Git m'a permis de répondre à ce besoin.\\
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\small, frame=trBL]
 git-svn clone http://svn/repo/here/trunk
 \end{lstlisting}
 % section Le passage fatidique (end)
@@ -183,13 +183,10 @@ les modifications validées par le chef de projet, celui-ci doit mettre en ligne
 sur le dépôt de production. J'ai créé un script Batch \og modèle \fg{} pour
 que cela ce fasse en un clic.\\
 
-pull-dossier.cmd :
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\small, frame=trBL]
 set PATH=%HOMEPATH%;%PATH%
 plink identit@ftp.identit.fr -l identit -pw MOTDEPASSE
-"cd LEDOSSIER;
-git pull;
-exit;"
+"cd LEDOSSIER; git pull; exit;"
 \end{lstlisting}
 
 % section Mise en production automatique (end)
@@ -211,8 +208,7 @@ virtuelle Windows\, \footnote{À partir du logiciel VirtualBox.} pour créer mon
 script Batch qui s'execute en console, et qui lance enfin un terminal Linux
 pour faire la mise à jour\dots\\
 
-pullall.cmd :
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\small, frame=trBL]
 "C:\Program Files\TortoiseGit\bin\pageant.exe"
 C:%HOMEPATH%\.ssh\id_rsa.ppk
 "C:\Program Files (x86)\git\bin\sh.exe" --login -i -c
