@@ -16,15 +16,15 @@ pourquoi. Ils sont par conséquent capables de dire qui a écrit chaque ligne de
 chaque fichier et dans quel but ; si deux personnes travaillent simultanément
 sur un même fichier, ils sont capables d’assembler (de fusionner) leurs
 modifications et d’éviter que le travail d’une de ces personnes ne soit écrasé.
-
 Ces logiciels ont donc par conséquent deux utilités principales :
+
 \begin{itemize}
     \item suivre l’évolution d’un code source, pour retenir les modifications
-effectuées sur chaque fichier et être ainsi capable de revenir en arrière en
-cas de problème ;
+    effectuées sur chaque fichier et être ainsi capable de revenir en arrière en
+    cas de problème ;
     \item travailler à plusieurs, sans risquer de se marcher sur les pieds.
-Si deux personnes modifient un même fichier en même temps, leurs modifications
-doivent pouvoir être fusionnées sans perte d’information.
+    Si deux personnes modifient un même fichier en même temps, leurs modifications
+    doivent pouvoir être fusionnées sans perte d’information.
 \end{itemize}
 
 Chaque utilisateur possède une copie du code source ainsi que toutes les
@@ -41,25 +41,28 @@ lui aussi l’historique des versions.}
 \end{center}
 \end{figure}
 
-\emph{Un commit} correspond à un enregistrement des modifications dans le
-temps. Admettons un fichier qui contient un paragraphe, si nous ajoutons un
-deuxième paragraphe, le fichier sera considéré comme modifié par Git\,
-\footnote{Créé par Linus Torvalds, qui est entre autres l'homme à l'origine de
-Linux. Il est de type distribué.}, pour enregistrer la modification on effectue
-un commit. L'analogie la plus simple est celle des jeux vidéos où vous
-sauvegardez votre progression à chaque étape franchie.
-
-\emph{Une branche} représente une \og copie virtuelle \fg{} du dossier
-contenant les fichiers sources. En effet, il est possible de cloner
-virtuellement un dépôt et de basculer de l'original à la copie pour développer,
-par exemple, sur la branche principale les nouvelles fonctionnalités et sur
-l'autre branche les corrections d'erreurs comme nous le montre la figure
-\ref{branches}.
 \subsection{Les rudiments} % (fold)%{{{
 \label{sub:Les rudiments}
 
 
 \begin{figure}
+\begin{description}
+    \item[Un commit] correspond à un enregistrement des modifications dans le
+    temps. Admettons un fichier qui contient un paragraphe, si nous ajoutons un
+    deuxième paragraphe, le fichier sera considéré comme modifié par Git\,
+    \footnote{Créé par Linus Torvalds, qui est entre autres l'homme à l'origine de
+    Linux. Il est de type distribué.}, pour enregistrer la modification on effectue
+    un commit. L'analogie la plus simple est celle des jeux vidéos où vous
+    sauvegardez votre progression à chaque étape franchie.
+    \item[Une branche] représente une \og copie virtuelle \fg{} du dossier
+    contenant les fichiers sources. En effet, il est possible de cloner
+    virtuellement un dépôt et de basculer de l'original à la copie pour développer,
+    par exemple, sur la branche principale les nouvelles fonctionnalités et sur
+    l'autre branche les corrections d'erreurs comme le montre la figure~\ref{branches}.
+    \item[La fusion] est l'opération de rassemblement des deux branches en une,
+    c'est-à-dire dans le cas précédent de regrouper les corrections d'erreurs avec
+    les nouvelles fonctionnalités.
+\end{description}
 \begin{center}
 \includegraphics[scale=0.8]{images/branches.png}
 \caption{master, develop et topic, trois branches d'un même dépôt.}
@@ -67,17 +70,15 @@ l'autre branche les corrections d'erreurs comme nous le montre la figure
 \end{center}
 \end{figure}
 
-\emph{La fusion} est l'opération de rassemblement des deux branches en une,
-c'est-à-dire dans le cas précédent de regrouper les corrections d'erreurs avec
-les nouvelles fonctionnalités.
-
 Les fondamentaux ayant été acquis, j'ai trouvé plusieurs solutions à la
-problématique principale qui est la suivante : \newline
+problématique principale qui est la suivante :
 
-Peut-on fusionner des branches tout en choisissant de ne pas fusionner
-tout les commits ? \newline
+\begin{quote}
+    \emph{Peut-on fusionner des branches tout en choisissant de ne pas
+    fusionner tout les commits ?}
+\end{quote}
 
-\begin{itemize}
+\begin{enumerate}
     \item Tout dabord la commande \texttt{git chery-pick nomducommit} permet
     de \og cueillir \fg{} le commit que l'on veut fusionner.
     \item Ensuite on peut aussi rassembler les deux branches puis exécuter la
@@ -85,7 +86,7 @@ tout les commits ? \newline
     du commit après la fusion.
     \item Enfin faire trois branches distinctes pour ne pas avoir à faire les
     opérations ci-dessus\, \footnote{Cette solution à été choisie.}.
-\end{itemize}
+\end{enumerate}
 
 Git répondant au besoin de l'entreprise, il a fallu que j'effectue des
 recherches pour que la migration Subversion\, \footnote{Le logiciel de gestion
@@ -110,17 +111,19 @@ logique il ne dispose pas des nouveautés sans les mettre à jour. Le problème
 est qu'on ne pouvait pas modifier des branches distantes dites \og de suivi
 \fg{}. Cette fonctionnalité permet à plusieurs développeurs de travailler en
 même temps sur une branche différente de celle par défaut, par exemple pour
-expérimenter de nouvelles implémentations à plusieurs. À ce moment-là j'ai été
-très déçu et pensais mon travail inutilisable. Cependant, mes efforts n'ont pas
-été vain puisque M.\bsc{Dubourg} après quelques recherches, a trouvé sur
-internet un utilisateur ayant réussi à installer Git sur un serveur mutualisé.
-Nous n'avions pas les droits d'accès aux dossiers des programmes mais rien ne
-nous empêchait de compiler Git à partir des sources pour nous permettre de
-créer en local le logiciel\, \footnote{Le problème ne se serait pas posé si
-j'avais lu le chapitre traitant de la compilation dans mon livre Linux, je n'ai
-découvert cette méthode qu'après le stage\dots}. Ceci étant fait, en
-redéfinissant la variable système qui stocke les chemins des applications, nous
-avons pu utiliser notre compilé dernier cri.
+expérimenter de nouvelles implémentations à plusieurs.
+
+À ce moment-là j'ai été très déçu et pensais mon travail inutilisable.
+Cependant, mes efforts n'ont pas été vain puisque M.\bsc{Dubourg} après
+quelques recherches, a trouvé sur internet un utilisateur ayant réussi à
+installer Git sur un serveur mutualisé.  Nous n'avions pas les droits d'accès
+aux dossiers des programmes mais rien ne nous empêchait de compiler Git à
+partir des sources pour nous permettre de créer en local le logiciel\,
+\footnote{Le problème ne se serait pas posé si j'avais lu le chapitre traitant
+de la compilation dans mon livre Linux, je n'ai découvert cette méthode
+qu'après le stage\dots}. Ceci étant fait, en redéfinissant la variable système
+qui stocke les chemins des applications, nous avons pu utiliser notre compilé
+dernier cri.
 % subsection L'installation (end)%}}}
 
 \subsection{Le passage fatidique} % (fold)%{{{
