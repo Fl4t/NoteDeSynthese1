@@ -194,6 +194,22 @@ dû parcourir la documentation de Smarty pour comprendre son
 fonctionnement, il s'avère que la syntaxe est très particulière mais
 très efficace. J'ai terminé par faire de l'agencement sur ma page pour
 que chaque ligne lisible par un néophyte soit en face de la ligne
-traduite en SQL dans un tableau à deux colonnes.
+traduite en SQL dans un tableau à deux colonnes.\\
+
+\begin{lstlisting}[basicstyle=\ttfamily\small, frame=trBL]
+{foreach from=$table->fields item=field}
+  {if $field->action != diffDb::ACTION_SAME}
+    {$messHTML[$field->action]}le champ
+    {$field->field->name} :
+    {$field->field->coltype},
+    {$field->field->intername},
+    {$field->field->interclass},
+    {$field->field->nullable},
+    {$field->field->coldefault},
+    {$field->field->extra},
+    {$field->field->commentaire}
+  {/if}
+{/foreach}
+\end{lstlisting}
 % subsection Affichage du résultat (end)%}}} section Le script PHP
 % (end)%}}} chapter Script de comparaison (end)
