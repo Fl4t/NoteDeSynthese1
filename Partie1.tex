@@ -136,11 +136,11 @@ applications, nous avons pu utiliser notre compilé dernier cri.
 \subsection{Le passage fatidique} % (fold)%{{{
 \label{sub:Le passage fatidique}
 
-Trois jours avant mon départ, le grand déménagement s'impose. Toute la partie
-étude et confection du tutoriel Git prend forme car j'ai basculé tous les
-projets qui étaient au préalable sur Subversion vers Git tout en gardant
-l'historique des changements provenant de SVN. Après quelques recherches, une
-commande Git m'a permis de répondre à ce besoin.\\
+Trois jours avant mon départ, le grand déménagement s'impose. Toute la
+partie étude et confection du tutoriel Git prend forme car j'ai basculé
+tous les projets qui étaient au préalable sur Subversion vers Git tout
+en gardant l'historique des changements provenant de SVN. Après quelques
+recherches, une commande Git m'a permis de répondre à ce besoin.\\
 
 \begin{lstlisting}[basicstyle=\ttfamily\small, frame=trBL]
 git-svn clone http://svn/repo/here/trunk
@@ -258,11 +258,10 @@ un terminal Linux pour faire la mise à jour\dots\\
 C:%HOMEPATH%\.ssh\id_rsa.ppk
 "C:\Program Files (x86)\git\bin\sh.exe" --login -i -c
 "for i in $(find . -maxdepth 2 -mindepth 2 -type d);
-do
-    cd $i;
-    echo $i;
-    git remote -v;
-    git pull; cd ../..;
+do cd $i;
+   echo $i;
+   git remote -v;
+   git pull; cd ../..;
 done"
 \end{lstlisting}
 % subsection Mise à jour locale automatique (end)%}}}
