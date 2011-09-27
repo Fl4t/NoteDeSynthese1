@@ -5,7 +5,7 @@
 \label{sec:Le besoin}
 
 \lettrine{L}{e} but de ce script est de consulter les différences qui
-existent entre une base de référence est une base à mettre à jour. Dans
+existent entre une base de référence et une base à mettre à jour. Dans
 le cas de l'entreprise, il permettrait un suivi des mises à jour des
 applications fournies au client et pour moi, m'initier à la
 programmation orientée objet\, \footnote{La programmation orientée objet
@@ -34,7 +34,7 @@ page~\pageref{bdd} nous en illustre une structure basique.
 
 À l'aide d'un cours sur internet, j'ai commencé à créer ma première
 classe.  Cette classe après instanciation représenterait l'objet \og
-base de données \fg{} sous forme de tableau. L'image~\ref{obj} qui ce
+base de données \fg{} sous forme de tableau. L'image~\ref{obj} qui se
 trouve en page~\pageref{obj} est plus parlante.
 
 \begin{figure}
@@ -52,7 +52,7 @@ vraiment difficile. Me rendant compte que je bloquais énormément, je fis
 des recherches sur internet pour trouver un programme équivalent sur
 lequel je me suis appuyé pour commencer. \bsc{M.~Dubourg} m'a mis sur la
 voie en me disant d'utiliser des classes et des méthodes toutes prêtes
-de l'entreprise ce qui me fit gagner beaucoup de temps, car je savais
+de l'entreprise ce qui me fit gagner beaucoup de temps, car je ne savais
 pas comment transcrire une structure de base de données en objet.
 
 Pour utiliser les sources de la société, j'ai dû mettre en place un
@@ -82,7 +82,7 @@ frustrant\dots
 Il a fallu dans un premier temps que je recherche comment extraire le
 nom d'une base ainsi que le nom de ses tables. La réponse à cette
 question est dans la documentation de MySQL. Une base de données est
-fournit à l'installation et s'appelle \og information schéma \fg{} . En
+fournie à l'installation et s'appelle \og information schéma \fg{} . En
 résumé, c'est une base de données qui contient toutes les autres.
 
 La requête récupérant les données utiles, j'ai dû concevoir un
@@ -141,7 +141,7 @@ J'étais dans la situation des tables ayant les mêmes noms, il fallait
 par la suite que je compare le contenu. Il ne m'a pas fallut longtemps
 pour comprendre que l'algorithme était exactement le même, le plus dur
 étant de savoir comment j'allais faire pour ne pas me répéter, ce qui a
-bloqué énormément mon avancé pour pas grand-chose.  \bsc{M.~Dubourg}
+bloqué énormément mon avancée pour pas grand-chose.  \bsc{M.~Dubourg}
 constatant que je stagnais, m'a conseillé de faire comme j'avais appris
 plutôt que d'essayer de faire de la POO\, \footnote{\emph{Programmation
 Orientée Objet.}}.  Une fois le script fonctionnel, qui était cependant
@@ -150,9 +150,9 @@ poussées sur la marche à suivre. De fil en aiguille le code source passa
 d'environ quatre-cent lignes à deux-cent cinquante.
 
 Par la suite, je devais comparer le contenu des champs lorsque les
-champs parcourus avait le même nom. Je confrontais tout simplement le
-contenu des champs pour connaitre l'issue finale, à savoir que je ne
-pouvais pas décider si les tables étaient similaire sans avoir balayé
+champs parcourus avaient le même nom. Je confrontais tout simplement le
+contenu des champs pour connaître l'issue finale, à savoir que je ne
+pouvais pas décider si les tables étaient similaires sans avoir balayé
 tous les champs et toutes les caractéristiques de ceux-ci.
 % subsection Comparaison des champs (end)%}}}
 
@@ -176,9 +176,9 @@ de données myISAM\, \footnote{\emph{Indexed Sequential Access Method} ou
 L'organisation séquentielle indexée, est un mode d'organisation des
 fichiers dans les bases de données.} et que donc aucune de leurs tables
 comportait de clé étrangère, cependant les clés primaires concaténées
-restent problématiques, car pas imaginer pendant la conception. Nous
-avons décidé que la création des contraintes se ferait à la main pour ne
-pas repartir de zéro.
+restent problématiques, car elles n'étaient pas imaginées pendant la
+conception. Nous avons décidé que la création des contraintes se ferait
+à la main pour ne pas repartir de zéro.
 
 Après avoir analysé mes méthodes de génération de phrases lisibles et de
 requêtes SQL, \bsc{M.~Dubourg} m'a présenté un outil nommé \og Smarty
