@@ -114,11 +114,11 @@ nécessaires pour installer une nouvelle version.
 
 Les logiciels libres sont réputés pour être rétro-compatibles, mais en
 toute logique il ne dispose pas des nouveautés sans les mettre à jour.
-Le problème est qu'on ne pouvait pas modifier des branches distantes
-dites \og de suivi \fg{}. Cette fonctionnalité permet à plusieurs
-développeurs de travailler en même temps sur une branche différente de
-celle par défaut, par exemple pour expérimenter de nouvelles
-implémentations à plusieurs.
+Le problème est qu'on ne pouvait pas créer des branches distantes dites
+\og de suivi \fg{}. Cette fonctionnalité permet à plusieurs développeurs
+de travailler en même temps sur une branche différente de celle par
+défaut, par exemple pour expérimenter de nouvelles implémentations à
+plusieurs.
 
 À ce moment-là j'ai été très déçu et pensais mon travail inutilisable.
 Cependant, mes efforts n'ont pas été vain puisque \bsc{M.~Dubourg} après
@@ -154,21 +154,21 @@ git-svn clone http://svn/repo/here/trunk
 Pour aider les développeurs à intégrer le nouveau gestionnaire de
 version, j'ai élaboré un document Office Word~\textregistered{} de
 quatorze pages qui explique les bases du logiciel, la mise en place de
-l'outil dans leur environement de travail respectif et l'utilisation de
+l'outil dans leur environnement de travail respectif et l'utilisation de
 celui-ci avec le gratuiciel TortoiseGit.  Pour être au plus près des
 problématiques qui pourraient être rencontrées, j'ai conçu l'intégralité
 du guide sous forme de questions et de réponses. Sans rentrer dans les
 détails, je liste ici les chapitres qui le compose :
 
 \begin{enumerate}
-    \item Les bases.
+    \item Les bases
     \item Comment mettre en place Git sur Windows~\textregistered ?
     \item Comment gérer les dépôts Git ?
     \item Comment utiliser Git ?
     \item Comment utiliser les branches ?
     \item Comment consulter l'historique des modifications ?
     \item Quelle est la méthode de travail ?
-    \item Annexe.
+    \item Annexe
 \end{enumerate}
 % section Le tutoriel utilisateur (end)%}}}
 
@@ -244,14 +244,14 @@ implique une mise à jour des clones locaux pour récupérer les
 modifications des autres développeurs ce qui est très répétitif. J'ai
 donc créé un script Batch\, \footnote{Désigne un fichier qui contient
 une suite de commandes qui seront traitées automatiquement par
-Windows~\textregistered.} qui parcourt tous les dossiers englobant les
+Windows~\textregistered.} qui explore tous les dossiers englobant les
 sources des dépôts et les mets à jour. Pour cela j'ai parcouru la
-documentation de la console Windows~\textregistered et ça n'a pas été
+documentation de la console Windows~\textregistered{} et ça n'a pas été
 évident du tout. Pour l'anecdote, je devais à partir de mon MacBook
-Pro\, \footnote{Système de type UNIX.}, lancer une machine virtuelle
-Windows~\textregistered\, \footnote{À partir du logiciel VirtualBox.}
-pour créer mon script Batch qui s'exécute en console, et qui lance enfin
-un terminal Linux pour faire la mise à jour\dots\\
+Pro\, \footnote{Mac OS X est un système de type UNIX.} ; lancer une
+machine virtuelle Windows~\textregistered\, \footnote{À partir du
+logiciel VirtualBox.} ; pour créer mon script qui s'exécute en console ;
+et qui lance enfin un terminal Linux pour faire la mise à jour\dots\\
 
 \begin{lstlisting}[basicstyle=\ttfamily\small, frame=trBL]
 "C:\Program Files\TortoiseGit\bin\pageant.exe"
