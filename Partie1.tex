@@ -79,7 +79,7 @@ problématique principale qui est la suivante :
 
 \begin{quote}
     \emph{Peut-on fusionner des branches tout en choisissant de ne pas
-    fusionner tout les commits ?}
+    fusionner tous les commits ?}
 \end{quote}
 
 \begin{enumerate}
@@ -89,7 +89,7 @@ problématique principale qui est la suivante :
     commande \texttt{git revert nomducommit} pour inverser les modifications
     du commit après la fusion ;
     \item Enfin faire trois branches distinctes pour ne pas avoir à
-    faire les opérations ci-dessus\, \footnote{Cette solution à été
+    faire les opérations ci-dessus\, \footnote{Cette solution a été
     choisie.}.
 \end{enumerate}
 
@@ -184,9 +184,9 @@ pour ses créations, mais pas pour produire du code.} et aussi que ce
 logiciel regorge de fonctionnalités et donc très difficile à simplifier
 à travers une interface ne pouvant fonctionner qu'avec une souris.
 L'équipe n'étant pas très férue de ligne de commande et le logiciel
-TortoiseGit reprenant que les fonctions essentielles de Git, il a fallu
-que je conçois des petits programmes qui fonctionnent en un clic pour
-simplifier les choses répétitives.
+TortoiseGit ne reprenant que les fonctions essentielles de Git, il a
+fallu que je conçois des petits programmes qui fonctionnent en un clic
+pour simplifier les choses répétitives.
 
 \subsection{Lister les dépôts du serveur} % (fold)%{{{
 \label{sub:Lister les dépôts du serveur}
@@ -202,10 +202,10 @@ serveur pour y télécharger des fichiers.} pour connaître les noms des
 répertoires Git puis recopier le bon lien hypertexte avec le bon chemin
 d'arborescence est une tâche fastidieuse.  J'ai donc, à l'aide de mes
 connaissances en système UNIX, créé un script qui analyse un dossier
-défini et qui liste les différents dépôts tout en leurs mettant les
+défini et qui liste les différents dépôts tout en leur mettant les
 bonnes adresses de téléchargement en préfixe comme nous le montre la
 figure~\ref{repo}. Du coup, un simple copier-coller du lien du dépôt
-voulu dans tortoiseGit suffit pour cloner. Gain de productivité et de
+voulu dans tortoiseGit suffit pour cloner, gain de productivité et de
 simplicité réunies.
 
 \begin{figure}
